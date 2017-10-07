@@ -8,14 +8,8 @@ using System.Threading.Tasks;
 
 namespace RefactionMe.Data.Repositories
 {
-    public class ProductRepository : RepositoryBase<Product>, IProductRepository
+    public interface IProductOptionRepository : IRepository<ProductOption>
     {
-        public ProductRepository(IDbFactory dbFactory) 
-            : base(dbFactory)
-        {
-
-        }
-
+        //customzied database opertions go here.
     }
-
 }

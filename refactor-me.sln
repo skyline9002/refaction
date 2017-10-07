@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refactor-me", "refactor-me\refactor-me.csproj", "{20AB69F9-F2D3-4A68-96C3-424EC8B9406E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactionMe.Api", "refactor-me\RefactionMe.Api.csproj", "{20AB69F9-F2D3-4A68-96C3-424EC8B9406E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refactor-me.Test", "refactor-me.Test\refactor-me.Test.csproj", "{178FA9AE-DCE9-4DBF-8029-660ADFC9591B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactionMe.Test", "refactor-me.Test\RefactionMe.Test.csproj", "{178FA9AE-DCE9-4DBF-8029-660ADFC9591B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refactor-me.Model", "refactor-me.Model\refactor-me.Model.csproj", "{63C1D1B6-EEB9-41BA-9E21-DE83A562ED0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactionMe.Entity", "refactor-me.Model\RefactionMe.Entity.csproj", "{63C1D1B6-EEB9-41BA-9E21-DE83A562ED0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refactor-me.Service", "refactor-me.Service\refactor-me.Service.csproj", "{29005F0D-A96B-4185-9B02-66C54FBDC559}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactionMe.Service", "refactor-me.Service\RefactionMe.Service.csproj", "{29005F0D-A96B-4185-9B02-66C54FBDC559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "refactor-me.Data", "refactor-me.Data\refactor-me.Data.csproj", "{9DBBA847-3E58-4EB5-8EC2-EB83D768627D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefactionMe.Data", "refactor-me.Data\RefactionMe.Data.csproj", "{9DBBA847-3E58-4EB5-8EC2-EB83D768627D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

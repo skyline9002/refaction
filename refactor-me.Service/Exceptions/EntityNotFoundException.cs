@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RefactionMe.Data.Core
+namespace RefactionMe.Service.Exceptions
 {
-    public interface IDbFactory
+    public class EntityNotFoundException : Exception
     {
-        ProductContext GetDbContext();
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace refactor_me.Data.Core
+namespace RefactionMe.Data.Core
 {
     public interface IUnitOfWork
     {

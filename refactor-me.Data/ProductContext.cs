@@ -1,6 +1,6 @@
-﻿using refactor_me.Data.Configuration;
-using refactor_me.Data.Core;
-using refactor_me.Model;
+﻿using RefactionMe.Data.Configuration;
+using RefactionMe.Data.Core;
+using RefactionMe.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace refactor_me.Data
+namespace RefactionMe.Data
 {
     public class ProductContext : DbContext
     {

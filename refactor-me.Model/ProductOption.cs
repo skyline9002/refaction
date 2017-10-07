@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace refactor_me.Model
+namespace RefactionMe.Entity
 {
-    public class ProductOption
+    public class ProductOption : Entity.Abstract.Entity
     {
-        public Guid Id { get; set; }
         public Guid ProductId { get; set; }
         public string Name { get; set; }
         public  string Description { get; set; }
-        
     }
 }

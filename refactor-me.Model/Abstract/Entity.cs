@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RefactionMe.Data.Core
+namespace RefactionMe.Entity.Abstract
 {
-    public interface IDbFactory
+    public abstract class Entity : IEntity
     {
-        ProductContext GetDbContext();
+        public Guid Id { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace refactor_me.Test
+namespace RefactionMe.Test
 {
     [TestClass]
     public class UnitTest1

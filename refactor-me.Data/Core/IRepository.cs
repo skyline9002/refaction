@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace refactor_me.Data.Core
+namespace RefactionMe.Data.Core
 {
     public interface IRepository<T> where T : class
     {
@@ -38,7 +38,7 @@ namespace refactor_me.Data.Core
         /// </summary>
         /// <param name="id">Guid, Id</param>
         /// <returns>entity model</returns>
-        T GetById(int id);
+        T GetById(Guid id);
 
         /// <summary>
         /// Get single entity by lamda expression.

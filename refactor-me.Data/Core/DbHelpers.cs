@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace refactor_me.Data.Core
+namespace RefactionMe.Data.Core
 {
     public static class DbHelpers
     {

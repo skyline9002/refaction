@@ -7,8 +7,8 @@
     <ProjectGuid>{29005F0D-A96B-4185-9B02-66C54FBDC559}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>refactor_me.Service</RootNamespace>
-    <AssemblyName>refactor-me.Service</AssemblyName>
+    <RootNamespace>RefactionMe.Service</RootNamespace>
+    <AssemblyName>RefactionMe.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessServiceBase.cs" />
+    <Compile Include="Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="Interface\IProducService.cs" />
+    <Compile Include="Interface\IProductOptionService.cs" />
+    <Compile Include="ProductOptionService.cs" />
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\refactor-me.Data\RefactionMe.Data.csproj">
+      <Project>{9DBBA847-3E58-4EB5-8EC2-EB83D768627D}</Project>
+      <Name>RefactionMe.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\refactor-me.Model\RefactionMe.Entity.csproj">
+      <Project>{63C1D1B6-EEB9-41BA-9E21-DE83A562ED0F}</Project>
+      <Name>RefactionMe.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

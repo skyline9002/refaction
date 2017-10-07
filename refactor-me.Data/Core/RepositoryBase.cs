@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace refactor_me.Data.Core
+namespace RefactionMe.Data.Core
 {
 
     /// <summary>
@@ -58,7 +58,7 @@ namespace refactor_me.Data.Core
         public virtual void Delete(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = _dbSet.Where<T>(where).AsEnumerable();
-
+            
             foreach (T obj in objects)
             {
                 _dbSet.Remove(obj);
