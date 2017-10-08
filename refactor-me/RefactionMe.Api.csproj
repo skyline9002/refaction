@@ -122,10 +122,8 @@
     <Compile Include="Infrastructure\Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mappings\AutoMapperProfile.cs" />
     <Compile Include="Infrastructure\WebApiControllerBase.cs" />
-    <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\ProductOptionsViewModel.cs" />
     <Compile Include="Models\ProductOptionViewModel.cs" />
-    <Compile Include="Models\Products.cs" />
     <Compile Include="Models\ProductsViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

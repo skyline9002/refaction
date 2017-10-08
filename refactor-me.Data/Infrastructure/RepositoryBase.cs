@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RefactionMe.Entity.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace RefactionMe.Data.Infrastructure
     /// </summary>
     /// <typeparam name="T">Database Entites</typeparam>
     public abstract class RepositoryBase<T> 
-        where T : class
+        where T : class, IEntity
     {
         #region Properties
         private ProductContext _dbContext;
@@ -67,7 +68,7 @@ namespace RefactionMe.Data.Infrastructure
 
         public virtual T GetById(Guid id)
         {
-            return _dbSet.Find(id);
+            return _dbSet.FirstOrDefault(a => a.Id ==id);
         }
 
         public virtual IEnumerable<T> GetAll()

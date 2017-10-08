@@ -17,6 +17,13 @@ namespace RefactionMe.Data
         {
 
         }
+
+        public ProductContext(string conn)
+            :base(conn)
+        {
+
+        }
+
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductOption> ProductOptions { get; set; }
                 
@@ -24,11 +31,6 @@ namespace RefactionMe.Data
         {
             modelBuilder.Configurations.Add(new ProductConfiguration());
             modelBuilder.Configurations.Add(new ProductOptionConfiguration());
-        }
-
-        public virtual void Commit()
-        {
-            base.SaveChanges();
         }
     }
 }
