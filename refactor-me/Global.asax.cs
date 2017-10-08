@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RefactionMe.Api.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,14 @@ namespace RefactionMe
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            var config = GlobalConfiguration.Configuration;
+            WebApiConfig.Register(config);
+            Bootstrapper.Run();
+            GlobalConfiguration.Configuration.EnsureInitialized();
+
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
+
+
         }
     }
 }

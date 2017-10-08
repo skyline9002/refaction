@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace RefactionMe.Entity
+namespace RefactionMe.Api.Models
 {
-    public class ProductOption : Entity.Abstract.Entity
+    public class ProductOptionViewModel
     {
+        public Guid Id { get; set; }
         public Guid ProductId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

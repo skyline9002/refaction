@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RefactionMe.Entity;
 using RefactionMe.Data.Repositories;
-using RefactionMe.Data.Core;
+using RefactionMe.Data.Infrastructure;
 using RefactionMe.Service.Exceptions;
 
 namespace RefactionMe.Service

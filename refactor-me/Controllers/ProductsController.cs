@@ -1,115 +1,121 @@
-﻿using System;
+﻿using AutoMapper;
+using RefactionMe.Api.Infrastructure;
+using RefactionMe.Api.Models;
+using RefactionMe.Entity;
+using RefactionMe.Service;
+using RefactionMe.Service.Interface;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
-using RefactionMe.Models;
 
-namespace RefactionMe.Controllers
+namespace RefactionMe.Api.Controllers
 {
     [RoutePrefix("products")]
-    public class ProductsController : ApiController
+    public class ProductsController : WebApiControllerBase
     {
-        [Route]
-        [HttpGet]
-        public Products GetAll()
+        private readonly IProducService _productService;
+
+        public ProductsController(IProducService productService)
         {
-            return new Products();
+            this._productService = productService;
         }
 
         [Route]
         [HttpGet]
-        public Products SearchByName(string name)
+        public HttpResponseMessage GetAll(HttpRequestMessage request)
         {
-            return new Products(name);
+            return CreateHttpResponse(request, () =>
+            {
+                var entities = this._productService.GetAll();
+
+                var result = new ProductsViewModel()
+                {
+                    Items = Mapper.Map<ProductViewModel[]>(entities),
+                };
+
+                return request.CreateResponse(HttpStatusCode.OK, result);
+            });
         }
 
-        [Route("{id}")]
+        [Route]
         [HttpGet]
-        public Product GetProduct(Guid id)
+        public HttpResponseMessage SearchByName(HttpRequestMessage request, string name)
         {
-            var product = new Product(id);
-            if (product.IsNew)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+            return CreateHttpResponse(request, () =>
+            {
+                var entities = this._productService.SearchByName(name);
 
-            return product;
+                var result = new ProductsViewModel()
+                {
+                    Items = Mapper.Map<ProductViewModel[]>(entities)
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            });
+        }
+
+        [Route("{id:guid}")]
+        [HttpGet]
+        public HttpResponseMessage GetProduct(HttpRequestMessage request, Guid id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var entity = this._productService.GetProduct(id);
+
+                var result = Mapper.Map<ProductViewModel>(entity);
+
+                return request.CreateResponse(HttpStatusCode.OK, result);
+            });
         }
 
         [Route]
         [HttpPost]
-        public void Create(Product product)
+        public HttpResponseMessage Create(HttpRequestMessage request, ProductViewModel viewModel)
         {
-            product.Save();
-        }
-
-        [Route("{id}")]
-        [HttpPut]
-        public void Update(Guid id, Product product)
-        {
-            var orig = new Product(id)
+            return CreateHttpResponse(request, () =>
             {
-                Name = product.Name,
-                Description = product.Description,
-                Price = product.Price,
-                DeliveryPrice = product.DeliveryPrice
-            };
+                if (viewModel == null || !ModelState.IsValid)
+                {
+                    return request.CreateResponse(HttpStatusCode.BadRequest, "Parameters Invalid.");
+                }
 
-            if (!orig.IsNew)
-                orig.Save();
+                this._productService.Create(Mapper.Map<Product>(viewModel));
+
+                return request.CreateResponse(HttpStatusCode.OK);
+            });
         }
 
-        [Route("{id}")]
-        [HttpDelete]
-        public void Delete(Guid id)
-        {
-            var product = new Product(id);
-            product.Delete();
-        }
 
-        [Route("{productId}/options")]
-        [HttpGet]
-        public ProductOptions GetOptions(Guid productId)
-        {
-            return new ProductOptions(productId);
-        }
-
-        [Route("{productId}/options/{id}")]
-        [HttpGet]
-        public ProductOption GetOption(Guid productId, Guid id)
-        {
-            var option = new ProductOption(id);
-            if (option.IsNew)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-
-            return option;
-        }
-
-        [Route("{productId}/options")]
-        [HttpPost]
-        public void CreateOption(Guid productId, ProductOption option)
-        {
-            option.ProductId = productId;
-            option.Save();
-        }
-
-        [Route("{productId}/options/{id}")]
+        [Route("{id:guid}")]
         [HttpPut]
-        public void UpdateOption(Guid id, ProductOption option)
+        public HttpResponseMessage Update(HttpRequestMessage request, Guid id, ProductViewModel viewModel)
         {
-            var orig = new ProductOption(id)
+            return CreateHttpResponse(request, () =>
             {
-                Name = option.Name,
-                Description = option.Description
-            };
+                if (viewModel == null || !ModelState.IsValid)
+                {
+                    return request.CreateResponse(HttpStatusCode.BadRequest, "Parameters Invalid");
+                }
 
-            if (!orig.IsNew)
-                orig.Save();
+                this._productService.Update(id, Mapper.Map<Product>(viewModel));
+
+                return request.CreateResponse(HttpStatusCode.OK);
+            });
         }
 
-        [Route("{productId}/options/{id}")]
+
+        [Route("{id:guid}")]
         [HttpDelete]
-        public void DeleteOption(Guid id)
+        public HttpResponseMessage Delete(HttpRequestMessage request, Guid id)
         {
-            var opt = new ProductOption(id);
-            opt.Delete();
+            return CreateHttpResponse(request, () =>
+            {
+                this._productService.Delete(id);
+                return request.CreateResponse(HttpStatusCode.OK);
+            });
         }
     }
 }

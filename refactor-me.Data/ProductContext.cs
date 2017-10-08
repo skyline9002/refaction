@@ -1,5 +1,5 @@
 ﻿using RefactionMe.Data.Configuration;
-using RefactionMe.Data.Core;
+using RefactionMe.Data.Infrastructure;
 using RefactionMe.Entity;
 using System;
 using System.Collections.Generic;

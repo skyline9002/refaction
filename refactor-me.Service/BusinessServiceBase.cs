@@ -1,4 +1,4 @@
-﻿using RefactionMe.Data.Core;
+﻿using RefactionMe.Data.Infrastructure;
 using RefactionMe.Entity.Abstract;
 using System;
 using System.Collections.Generic;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RefactionMe.Data.Core;
+using RefactionMe.Data.Infrastructure;
 using RefactionMe.Data.Repositories;
 using RefactionMe.Service.Exceptions;
 

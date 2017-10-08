@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RefactionMe.Data.Core
+namespace RefactionMe.Data.Infrastructure
 {
 
     /// <summary>
@@ -85,6 +85,7 @@ namespace RefactionMe.Data.Core
             return _dbSet.Where(where).FirstOrDefault<T>();
         }
 
+        
         #endregion
 
     }
